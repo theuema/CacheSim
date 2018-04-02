@@ -16,8 +16,8 @@ MemCache *cache;
 MemCache *getCacheInstance() { return cache; }
 
 // constructor (OOP style);
-void MemCache__init(MemCache *self, uint32_t size, uint8_t ways, CacheLine *line_ptr, CacheSet *set_ptr,
-                    uint8_t nbits, uint8_t kbits, uint32_t lines, uint32_t sets) {
+void MemCache__init(MemCache *self, uint32_t size, uint32_t ways, CacheLine *line_ptr, CacheSet *set_ptr,
+                    uint32_t nbits, uint32_t kbits, uint32_t lines, uint32_t sets, double aat) {
     self->size_ = size;
     self->ways_ = ways;
     self->kbits_ = kbits;
@@ -29,25 +29,26 @@ void MemCache__init(MemCache *self, uint32_t size, uint8_t ways, CacheLine *line
     self->cache_hits_ = 0;
     self->cache_misses_ = 0;
     self->replacements_ = 0;
-    self->miss_latency_ = MISS_LATENCY;
-    self->hit_latency_ = HIT_LATENCY;
+    self->hit_latency_ = L1_HIT_LATENCY;
+    self->aat_L1_miss = aat;
 }
 
 // cache allocation & initialization
 void MemCache__create(void) {
     uint32_t size = CACHE_SIZE * 1024;
+    double aat_L1_miss = L2_HIT_LATENCY + L2_MISSRATE * (L3_HIT_LATENCY + L3_MISSRATE * MEM_LATENCY);
     cache = (MemCache *) malloc(sizeof(MemCache));
     cache->block_size_ = CACHE_BLOCK_SIZE;
     double kbits_d = log(cache->block_size_) / log(2); // offset for addressing each byte in cache line
-    uint8_t kbits = (uint8_t) kbits_d;
-    uint8_t nbits;
+    uint32_t kbits = (uint32_t) kbits_d;
+    uint32_t nbits;
     uint32_t lines;
     uint32_t sets;
     /* direct cache */
     CacheLine *line_ptr;
     /* associative cache */
     CacheSet *set_ptr;
-    uint8_t ways;
+    uint32_t ways;
 
     /* allocate cache here;
      *
@@ -68,7 +69,7 @@ void MemCache__create(void) {
         sets = 0;
         set_ptr = NULL;
         double nbits_d = log(size / cache->block_size_) / log(2); // size of bits needed for line index
-        nbits = (uint8_t) nbits_d;
+        nbits = (uint32_t) nbits_d;
         lines = size / cache->block_size_;
         line_ptr = (CacheLine *) malloc(lines * (sizeof(CacheLine)));
 
@@ -76,7 +77,6 @@ void MemCache__create(void) {
         CacheLine *curr_line_ptr;
         for (uint32_t i = 0; i < lines; ++i) {
             curr_line_ptr = line_ptr + i;
-            curr_line_ptr->accessed_ = 0;
             curr_line_ptr->tag_ = 0;
             curr_line_ptr->valid_ = 0;
         }
@@ -87,7 +87,7 @@ void MemCache__create(void) {
         ways = CACHE_WAYS;
         assert(ways);
         double nbits_d = log((size / cache->block_size_) / ways) / log(2); // size of bits needed for set index
-        nbits = (uint8_t) nbits_d;
+        nbits = (uint32_t) nbits_d;
         sets = (size / cache->block_size_) / ways;
         set_ptr = (CacheSet *) malloc(sets * (sizeof(CacheSet)));
 
@@ -101,34 +101,13 @@ void MemCache__create(void) {
             CacheLine *curr_line_ptr;
             for (uint32_t n = 0; n < curr_set_ptr->set_lines_; ++n) {
                 curr_line_ptr = curr_set_ptr->set_line_ptr_ + n;
-                curr_line_ptr->accessed_ = 0;
                 curr_line_ptr->tag_ = 0;
                 curr_line_ptr->valid_ = 0;
             }
         }
     }
-    MemCache__init(cache, size, ways, line_ptr, set_ptr, nbits, kbits, lines, sets);
-
-    printf("[Succesfully created cache.]\n");
-    printf("\n\
-    Size: %dkb\n\
-    Line/Set index bits: %d\n\
-    Miss latency: %lfns\n\
-    Hit latency: %lfns\n\
-    Block Size: %dbyte\n\
-    Block offset bits: %d\n", cache->size_/1024, cache->nbits_, cache->miss_latency_, cache->hit_latency_,
-           cache->block_size_, cache->kbits_);
-    if (!DIRECT_CACHE) {
-        printf("\
-      /* associative */\n\
-      Sets: %d\n\
-      Ways: %d\n\
-      Lines in Sets: %d\n\n", cache->sets_, cache->ways_, cache->cache_set_ptr_->set_lines_);
-    } else {
-        printf("\
-      /* direct */\n\
-      Lines: %d\n\n", cache->lines_);
-    }
+    MemCache__init(cache, size, ways, line_ptr, set_ptr, nbits, kbits, lines, sets, aat_L1_miss);
+    printf("[Cache controller] Succesfully created cache.\n\n");
 }
 
 void MemCache__free(void) {
@@ -145,10 +124,10 @@ void MemCache__free(void) {
         free(cache->cache_set_ptr_);
         free(cache);
     }
-    printf("[Succesfully freed cache.]\n");
+    printf("[Cache controller] Succesfully freed cache.\n\n");
 }
 
-void random_replace(CacheLine *cache_line, size_t addr_tag){
+void random_replace(CacheLine *cache_line, size_t addr_tag) {
     cache_line->tag_ = addr_tag;
     cache->replacements_++;
 }
@@ -179,7 +158,7 @@ void associative_cache_miss(unsigned size, bool replacement,
     random_replace(cache_line, addr_tag);
 #endif
 
-miss_out:
+    miss_out:
     cache->cache_misses_++;
 }
 

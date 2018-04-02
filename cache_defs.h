@@ -16,13 +16,13 @@ typedef struct CacheLine CacheLine;
 
 struct MemCache {
     uint32_t size_;
-    uint8_t ways_;
-    uint8_t kbits_;
-    uint8_t nbits_;
+    uint32_t ways_;
+    uint32_t kbits_;
+    uint32_t nbits_;
     uint32_t lines_;
     uint32_t sets_;
-    double miss_latency_;
     double hit_latency_;
+    double aat_L1_miss;
     uint32_t block_size_;
     CacheLine *cache_line_ptr_;      //direct
     CacheSet *cache_set_ptr_;        //associative
@@ -42,7 +42,6 @@ struct CacheLine {
     bool valid_;
     size_t tag_;
     uint8_t line_data_[CACHE_BLOCK_SIZE];
-    uint64_t accessed_; // counter for LRU
 };
 
 #endif //CACHESIM_OFFLINE_CACHE_DEFS_H

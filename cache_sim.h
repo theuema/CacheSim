@@ -13,8 +13,11 @@ bool ReadFromFile(std::vector<size_t> &addr_trace, const char *filename);
 void PrintSimpleLog(MemCache *cache, vector<size_t> &addr_trace, const string &prefix, const string &time,
                     bool file_write_enabled);
 
-void RecordAccessTime(MemCache *cache, vector<double> &access_t, int64_t &last_hit_count,
-                      int64_t &last_miss_count);
+void RecordAccessTimeL1Memory(MemCache *cache, vector<double> &access_t, int64_t &last_hit_count,
+                              int64_t &last_miss_count);
+
+void RecordAccessTimeCacheHierachy(MemCache *cache, vector<double> &access_t, int64_t &last_hit_count,
+                                   int64_t &last_miss_count);
 
 void WriteAccessTimeToFile(vector<double> &mean, const string &prefix, const string &time);
 

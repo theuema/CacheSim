@@ -14,54 +14,76 @@ echo "* Intel Skylake 4Ghz *        |     * Intel Skylake 4Ghz direct * "
 echo "CACHE_BLOCK_SIZE 64byte       |     CACHE_BLOCK_SIZE 64byte"
 echo "CACHE_SIZE 32kb               |     CACHE_SIZE 32kb"
 echo "CACHE_WAYS 8                  |     CACHE_WAYS 0"
-echo "MISS_LATENCY 62ns             |     MISS_LATENCY 62ns"
-echo "HIT_LATENCY 1ns               |     HIT_LATENCY 1ns"
 echo "CACHE_TYPE associative        |     CACHE_TYPE direct"
+echo "L1_HIT_LATENCY 1ns            |     L1_HIT_LATENCY 1ns"
+echo "L2_MISSRATE 1%                |     L2_MISSRATE 1%"
+echo "L3_MISSRATE 0.2%              |     L3_MISSRATE 0.2%"
+echo "L2_HIT_LATENCY 4ns            |     L2_HIT_LATENCY 4ns"
+echo "L3_HIT_LATENCY 10.5ns         |     L3_HIT_LATENCY 10.5ns"
+echo "MEM_LATENCY 61.5ns            |     MEM_LATENCY 61.5ns"
+
 echo "---                           |     ---"
 echo "Configuration [3]:            |     Configuration [4]:"
 echo "* Intel Pentium III 1,4Ghz *  |     * Intel Pentium III 1,4Ghz direct * "
 echo "CACHE_BLOCK_SIZE 32byte       |     CACHE_BLOCK_SIZE 32byte"
 echo "CACHE_SIZE 16kb               |     CACHE_SIZE 16kb"
-echo "CACHE_WAYS 4                  |     CACHE_WAYS 4"
-echo "MISS_LATENCY 295ns            |     MISS_LATENCY 295ns"
-echo "HIT_LATENCY 2,15ns            |     HIT_LATENCY 2,15ns"
+echo "CACHE_WAYS 4                  |     CACHE_WAYS 0"
 echo "CACHE_TYPE associative        |     CACHE_TYPE direct"
+echo "L1_HIT_LATENCY 2.15ns         |     L1_HIT_LATENCY 2.15ns"
+echo "L2_MISSRATE 3%                |     L2_MISSRATE 3%"
+echo "L2_HIT_LATENCY 10.8ns         |     L2_HIT_LATENCY 10.8ns"
+echo "MEM_LATENCY 295ns             |     MEM_LATENCY 295ns"
+
 echo "---                           |     ---"
 echo "Configuration [5]:            |     Configuration [6]:"
 echo "* Atom N2800 1,8Ghz *         |     * Atom N2800 1,8Ghz direct * "
 echo "CACHE_BLOCK_SIZE 64byte       |     CACHE_BLOCK_SIZE 64 byte"
 echo "CACHE_SIZE 24kb               |     CACHE_SIZE 24kb"
 echo "CACHE_WAYS 6                  |     CACHE_WAYS 0"
-echo "MISS_LATENCY 95ns             |     MISS_LATENCY 95ns"
-echo "HIT_LATENCY 1,6ns             |     HIT_LATENCY 1,6ns"
 echo "CACHE_TYPE associative        |     CACHE_TYPE direct"
+echo "L1_HIT_LATENCY 1.7ns          |     L1_HIT_LATENCY 1.7ns"
+echo "L2_MISSRATE 2%                |     L2_MISSRATE 2%"
+echo "L2_HIT_LATENCY 8ns            |     L2_HIT_LATENCY 8ns"
+echo "MEM_LATENCY 94ns              |     MEM_LATENCY 94ns"
+
 echo "---                           |     ---"
 echo "Configuration [7]:            |     Configuration [8]:"
 echo "* IBM POWER8 3,7Ghz *         |     * IBM POWER8 3,7Ghz direct * "
 echo "CACHE_BLOCK_SIZE 128byte      |     CACHE_BLOCK_SIZE 128 byte"
 echo "CACHE_SIZE 64kb               |     CACHE_SIZE 64 kb"
 echo "CACHE_WAYS 8                  |     CACHE_WAYS 0"
-echo "MISS_LATENCY 87ns             |     MISS_LATENCY 87ns"
-echo "HIT_LATENCY 0,8ns             |     HIT_LATENCY 0,8ns"
 echo "CACHE_TYPE associative        |     CACHE_TYPE direct"
+echo "L1_HIT_LATENCY 0.8ns          |     L1_HIT_LATENCY 0.8ns"
+echo "L2_MISSRATE 1%                |     L2_MISSRATE 1%"
+echo "L3_MISSRATE 0.2%              |     L3_MISSRATE 0.2%"
+echo "L2_HIT_LATENCY 3.25ns         |     L2_HIT_LATENCY 3.25ns"
+echo "L3_HIT_LATENCY 7.3ns          |     L3_HIT_LATENCY 7.3ns"
+echo "MEM_LATENCY 88ns              |     MEM_LATENCY 88ns"
+
 echo "---"
 echo "Configuration [9]:            |     Configuration [10]:"
 echo "* UltaSPARC II 0.4Ghz ass *   |     * UltaSPARC II 400Mhz * "
 echo "CACHE_BLOCK_SIZE 16byte       |     CACHE_BLOCK_SIZE 16byte"
 echo "CACHE_SIZE 16kb               |     CACHE_SIZE 16kb"
 echo "CACHE_WAYS 4                  |     CACHE_WAYS 0"
-echo "MISS_LATENCY 350ns            |     MISS_LATENCY 350ns"
-echo "HIT_LATENCY 5ns               |     HIT_LATENCY 5ns"
 echo "CACHE_TYPE associative        |     CACHE_TYPE direct"
+echo "L1_HIT_LATENCY 5ns            |     L1_HIT_LATENCY 5ns"
+echo "L2_MISSRATE 3%                |     L2_MISSRATE 3%"
+echo "L2_HIT_LATENCY 33ns           |     L2_HIT_LATENCY 33ns"
+echo "MEM_LATENCY 350ns             |     MEM_LATENCY 350ns"
+
 echo "---"
 echo "Configuration [11]:           |     Configuration [12]:"
 echo "* Snapdragon 400 1,7Ghz ass * |     * Snapdragon 400 1,7Ghz * "
 echo "CACHE_BLOCK_SIZE 64byte       |     CACHE_BLOCK_SIZE 64byte"
 echo "CACHE_SIZE 4kb                |     CACHE_SIZE 4kb"
 echo "CACHE_WAYS 4                  |     CACHE_WAYS 0"
-echo "MISS_LATENCY 130ns            |     MISS_LATENCY 130ns"
-echo "HIT_LATENCY 1,7ns             |     HIT_LATENCY 1,7ns"
 echo "CACHE_TYPE associative        |     CACHE_TYPE direct"
+echo "L1_HIT_LATENCY 1.74ns         |     L1_HIT_LATENCY 1.74ns"
+echo "L2_MISSRATE 2%                |     L2_MISSRATE 2%"
+echo "L2_HIT_LATENCY 20.8ns         |     L2_HIT_LATENCY 20.8ns"
+echo "MEM_LATENCY 131ns             |     MEM_LATENCY 131ns"
+
 echo "---"
 echo "Configuration [13]:"
 echo ""
@@ -82,18 +104,25 @@ if [[ $configuration == "1" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 64
 #define CACHE_SIZE 32
 #define CACHE_WAYS 8
-#define MISS_LATENCY 62
-#define HIT_LATENCY 1
+#define L1_HIT_LATENCY 1
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 61.5
+#define L2_MISSRATE 0.01
+#define L3_MISSRATE 0.002
+#define L2_HIT_LATENCY 4
+#define L3_HIT_LATENCY 10.5
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -105,18 +134,25 @@ if [[ $configuration == "2" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 64
 #define CACHE_SIZE 32
 #define CACHE_WAYS 0
-#define MISS_LATENCY 62
-#define HIT_LATENCY 1
+#define L1_HIT_LATENCY 1
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 61.5
+#define L2_MISSRATE 0.01
+#define L3_MISSRATE 0.002
+#define L2_HIT_LATENCY 4
+#define L3_HIT_LATENCY 10.5
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -127,19 +163,27 @@ if [[ $configuration == "3" ]]; then
 #ifndef CACHE_CONFIG_H
 #define CACHE_CONFIG_H
 
-/*****************************/
-/* cache properties */
-/*****************************/
 
+/*****************************/
+/* L1 cache properties */
+/*****************************/
 #define CACHE_BLOCK_SIZE 32
 #define CACHE_SIZE 16
 #define CACHE_WAYS 4
-#define MISS_LATENCY 295
-#define HIT_LATENCY 2.15
+#define L1_HIT_LATENCY 2.15
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 295
+#define L2_MISSRATE 0.03
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 10.8
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -150,19 +194,27 @@ if [[ $configuration == "4" ]]; then
 #ifndef CACHE_CONFIG_H
 #define CACHE_CONFIG_H
 
-/*****************************/
-/* cache properties */
-/*****************************/
 
+/*****************************/
+/* L1 cache properties */
+/*****************************/
 #define CACHE_BLOCK_SIZE 32
 #define CACHE_SIZE 16
 #define CACHE_WAYS 0
-#define MISS_LATENCY 295
-#define HIT_LATENCY 2.15
+#define L1_HIT_LATENCY 2.15
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 295
+#define L2_MISSRATE 0.03
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 10.8
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -174,18 +226,25 @@ if [[ $configuration == "5" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 64
 #define CACHE_SIZE 24
 #define CACHE_WAYS 6
-#define MISS_LATENCY 95
-#define HIT_LATENCY 1.6
+#define L1_HIT_LATENCY 1.7
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 94
+#define L2_MISSRATE 0.02
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 8
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -197,18 +256,25 @@ if [[ $configuration == "6" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 64
 #define CACHE_SIZE 24
 #define CACHE_WAYS 0
-#define MISS_LATENCY 95
-#define HIT_LATENCY 1.6
+#define L1_HIT_LATENCY 1.7
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 94
+#define L2_MISSRATE 0.02
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 8
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -220,18 +286,25 @@ if [[ $configuration == "7" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 128
 #define CACHE_SIZE 64
 #define CACHE_WAYS 8
-#define MISS_LATENCY 87
-#define HIT_LATENCY 0.8
+#define L1_HIT_LATENCY 0.8
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 88
+#define L2_MISSRATE 0.01
+#define L3_MISSRATE 0.002
+#define L2_HIT_LATENCY 3.25
+#define L3_HIT_LATENCY 7.3
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -243,18 +316,25 @@ if [[ $configuration == "8" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 128
 #define CACHE_SIZE 64
 #define CACHE_WAYS 0
-#define MISS_LATENCY 87
-#define HIT_LATENCY 0.8
+#define L1_HIT_LATENCY 0.8
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 88
+#define L2_MISSRATE 0.01
+#define L3_MISSRATE 0.002
+#define L2_HIT_LATENCY 3.25
+#define L3_HIT_LATENCY 7.3
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -266,18 +346,25 @@ if [[ $configuration == "9" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 16
 #define CACHE_SIZE 16
 #define CACHE_WAYS 4
-#define MISS_LATENCY 350
-#define HIT_LATENCY 5
+#define L1_HIT_LATENCY 5
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 350
+#define L2_MISSRATE 0.03
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 33
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -289,18 +376,25 @@ if [[ $configuration == "10" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 16
 #define CACHE_SIZE 16
 #define CACHE_WAYS 0
-#define MISS_LATENCY 350
-#define HIT_LATENCY 5
+#define L1_HIT_LATENCY 5
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 350
+#define L2_MISSRATE 0.03
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 33
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -312,18 +406,25 @@ if [[ $configuration == "11" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 64
 #define CACHE_SIZE 4
 #define CACHE_WAYS 4
-#define MISS_LATENCY 130
-#define HIT_LATENCY 1.7
+#define L1_HIT_LATENCY 1.74
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 131
+#define L2_MISSRATE 0.02
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 20.8
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -335,18 +436,25 @@ if [[ $configuration == "12" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE 64
 #define CACHE_SIZE 4
 #define CACHE_WAYS 0
-#define MISS_LATENCY 130
-#define HIT_LATENCY 1.7
+#define L1_HIT_LATENCY 1.74
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY 131
+#define L2_MISSRATE 0.02
+#define L3_MISSRATE 0
+#define L2_HIT_LATENCY 20.8
+#define L3_HIT_LATENCY 0
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -360,11 +468,11 @@ if [[ $configuration == "13" ]]; then
   echo "      _cache size_ (must be a power of 2) ---"
   echo "      _cache ways_ must be even (script will terminate if odd) ---"
 
-  echo "Choose miss latency: (ns)"
-  read misslatency
+  echo "Choose mem latency: (ns)"
+  read memlatency
 
   if [[ $misslatency == "" ]]; then
-    misslatency="60"
+    memlatency="100"
   else
     re='^[0-9]+$'
     if ! [[ $misslatency =~ $re ]]; then
@@ -374,11 +482,67 @@ if [[ $configuration == "13" ]]; then
     fi
   fi
 
-  echo "Choose hit latency: (ns)"
-  read hitlatency
+  echo "Choose L1 hit-latency: (ns)"
+  read l1latency
 
   if [[ $hitlatency == "" ]]; then
-    hitlatency="26"
+    l1latency="2"
+  else
+    re='^[0-9]+$'
+    if ! [[ $hitlatency =~ $re ]]; then
+      echo "Error: Not a number." >&2;
+      echo "Exit script."
+      exit $E_EXIT
+    fi
+  fi
+
+  echo "Choose L2 hit-latency: (ns)"
+  read l2latency
+
+  if [[ $hitlatency == "" ]]; then
+    l2latency="5"
+  else
+    re='^[0-9]+$'
+    if ! [[ $hitlatency =~ $re ]]; then
+      echo "Error: Not a number." >&2;
+      echo "Exit script."
+      exit $E_EXIT
+    fi
+  fi
+
+  echo "Choose L3 hit-latency: (ns)"
+  read l3latency
+
+  if [[ $hitlatency == "" ]]; then
+    l3latency="11"
+  else
+    re='^[0-9]+$'
+    if ! [[ $hitlatency =~ $re ]]; then
+      echo "Error: Not a number." >&2;
+      echo "Exit script."
+      exit $E_EXIT
+    fi
+  fi
+
+  echo "Choose L2 miss-rate: (0.01 = 1%)"
+  read l2missrate
+
+  if [[ $hitlatency == "" ]]; then
+    l2missrate="0.01"
+  else
+    re='^[0-9]+$'
+    if ! [[ $hitlatency =~ $re ]]; then
+      echo "Error: Not a number." >&2;
+      echo "Exit script."
+      exit $E_EXIT
+    fi
+  fi
+
+  echo "Choose L3 miss-rate: (0.002 = 0.2%)"
+  read l3missrate
+
+  if [[ $hitlatency == "" ]]; then
+    l3missrate="0.002"
   else
     re='^[0-9]+$'
     if ! [[ $hitlatency =~ $re ]]; then
@@ -478,18 +642,25 @@ if [[ $configuration == "13" ]]; then
 #define CACHE_CONFIG_H
 
 /*****************************/
-/* cache properties */
+/* L1 cache properties */
 /*****************************/
-
 #define CACHE_BLOCK_SIZE $block_size
 #define CACHE_SIZE $size
 #define CACHE_WAYS $ways
-#define MISS_LATENCY $misslatency
-#define HIT_LATENCY $hitlatency
+#define L1_HIT_LATENCY $l1latency
 #define DIRECT_CACHE $direct
 
 /* choose replacement algorithm */
 #define RANDOM 1
+
+/*****************************/
+/* simulated L2/L3/MEM properties */
+/*****************************/
+#define MEM_LATENCY $memlatency
+#define L2_MISSRATE $l2missrate
+#define L3_MISSRATE $l3missrate
+#define L2_HIT_LATENCY $l2latency
+#define L3_HIT_LATENCY $l3latency
 
 #endif //CACHE_CONFIG_H
 EOM

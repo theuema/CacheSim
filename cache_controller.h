@@ -7,8 +7,8 @@
 
 #include "cache_defs.h"
 
-void MemCache__init(MemCache *self, uint32_t size, uint8_t ways, CacheLine *line_ptr, CacheSet *set_ptr,
-                    uint8_t nbits, uint8_t kbits, uint32_t lines, uint32_t sets);
+void MemCache__init(MemCache *self, uint32_t size, uint32_t ways, CacheLine *line_ptr, CacheSet *set_ptr,
+                    uint32_t nbits, uint32_t kbits, uint32_t lines, uint32_t sets, double aat);
 
 void MemCache__create(void);
 
