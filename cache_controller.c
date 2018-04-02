@@ -196,7 +196,7 @@ void check_hit_miss(size_t addr, unsigned size) {
     // get actual cache line index by cutting off klast bits & TAG
     uint64_t cache_line_index;
 
-    if (cache->nbits_ == 0)      // workaround: shift does not work when nbits_ is zero
+    if (cache->nbits_ == 0)      // workaround: not allowed to shift zero nbits_
         cache_line_index = 0;
     else
         cache_line_index = (((addr >> cache->kbits_) << (sizeof(addr) * 8 - cache->nbits_))
@@ -219,7 +219,7 @@ void check_hit_miss(size_t addr, unsigned size) {
 /*****************************/
     associative:;
     uint64_t cache_set_index;
-    if (cache->nbits_ == 0)      // workaround: shift does not work when nbits_ is zero
+    if (cache->nbits_ == 0)      // workaround: not allowed to shift zero nbits_
         cache_set_index = 0;
     else
         cache_set_index = (((addr >> cache->kbits_) << (sizeof(addr) * 8 - cache->nbits_))
