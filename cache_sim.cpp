@@ -169,13 +169,13 @@ int main(int argc, char **argv) {
         // check for hit miss
         for (auto it = addr_trace.begin(); it != addr_trace.end(); ++it) {
             check_hit_miss(*it, size);
-            // RecordAccessTime(getCacheInstance(), access_t, last_hit_count, last_miss_count);
+            RecordAccessTime(getCacheInstance(), access_t, last_hit_count, last_miss_count);
         }
 
         // print some stuff
         string time = createTimeString();
         PrintSimpleLog(getCacheInstance(), addr_trace, "simple", time, true);
-        // WriteAccessTimeToFile(access_t, "access_t", time);
+        WriteAccessTimeToFile(access_t, "access_t", time);
 
         // free cache
         MemCache__free();

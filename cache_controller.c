@@ -154,11 +154,6 @@ void random_replace(CacheLine *cache_line, size_t addr_tag){
 }
 
 void direct_cache_miss(unsigned size, bool valid_bit, CacheLine *cache_line, size_t addr_tag) {
-
-    // for(int i = 0; i < cache->miss_latency_; ++i){
-    //     asm volatile("nop");
-    // }
-
     // store TAG to CACHE and set valid bit
     cache_line->tag_ = addr_tag;
     if (valid_bit)
@@ -252,6 +247,7 @@ void check_hit_miss(size_t addr, unsigned size) {
             // all lines checked - cache miss with replacement              -> cache miss
             replacement = true;
 #if RANDOM
+            // simple random implementation
             int rand_index = rand() / (RAND_MAX / cache_set->set_lines_ + 1);
             associative_cache_miss(size, replacement, cache_set->set_line_ptr_ + rand_index, addr_tag);
 #endif
