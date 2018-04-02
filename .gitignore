@@ -7,6 +7,7 @@ CMakeLists.txt
 traces/
 ~$*
 debug/
+results/
 
 # Prerequisites
 *.d

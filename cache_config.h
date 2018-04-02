@@ -13,7 +13,6 @@
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 0
 #define RANDOM 1
 
 #endif //CACHE_CONFIG_H

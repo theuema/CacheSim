@@ -148,12 +148,6 @@ void MemCache__free(void) {
     printf("[Succesfully freed cache.]\n");
 }
 
-void lru_replace(CacheLine *cache_line, size_t addr_tag) {
-    cache_line->tag_ = addr_tag;
-    cache_line->accessed_ = 0;
-    cache->replacements_++;
-}
-
 void random_replace(CacheLine *cache_line, size_t addr_tag){
     cache_line->tag_ = addr_tag;
     cache->replacements_++;
@@ -186,9 +180,6 @@ void associative_cache_miss(unsigned size, bool replacement,
     }
 
     /* replacement algorithms */
-#if LRU
-    lru_replace(cache_line, addr_tag);
-#endif
 #if RANDOM
     random_replace(cache_line, addr_tag);
 #endif
@@ -242,17 +233,11 @@ void check_hit_miss(size_t addr, unsigned size) {
     CacheSet *cache_set = cache->cache_set_ptr_ + cache_set_index;
     bool replacement = false;
 
-#if LRU
-    CacheLine *lru_cache_line = cache_set->set_line_ptr_;
-#endif
     // go through all cache set lines of set and compare TAG
     for (uint32_t i = 0; i < cache_set->set_lines_; ++i) {
         cache_line = cache_set->set_line_ptr_ + i;
         if (cache_line->valid_ && cache_line->tag_ == addr_tag) {
             // actual cache line is valid and TAGs are congruent            -> cache hit
-#if LRU
-            cache_line->accessed_++;
-#endif
             cache->cache_hits_++;
             goto check_done;
         }
@@ -263,17 +248,9 @@ void check_hit_miss(size_t addr, unsigned size) {
             goto check_done;
         }
 
-#if LRU
-        if (cache_line->accessed_ < lru_cache_line->accessed_)
-            lru_cache_line = cache_line;
-#endif
-
         if (i + 1 == cache_set->set_lines_) {
             // all lines checked - cache miss with replacement              -> cache miss
             replacement = true;
-#if LRU
-            associative_cache_miss(size, replacement, lru_cache_line, addr_tag);
-#endif
 #if RANDOM
             int rand_index = rand() / (RAND_MAX / cache_set->set_lines_ + 1);
             associative_cache_miss(size, replacement, cache_set->set_line_ptr_ + rand_index, addr_tag);

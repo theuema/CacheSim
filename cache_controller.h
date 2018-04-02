@@ -23,8 +23,6 @@ void associative_cache_miss(unsigned size, bool replacement,
 
 MemCache *getCacheInstance();
 
-void lru_replace(CacheLine *cache_line, size_t addr_tag);
-
 void random_replace(CacheLine *cache_line, size_t addr_tag);
 
 void cache_flush_all(void);

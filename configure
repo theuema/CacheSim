@@ -69,7 +69,7 @@ echo "*Define custom configuration*"
 echo ""
 echo "----------------------------------------------------------------------"
 
-echo "Replacement algorithm for associative cache: LRU."
+echo "Replacement algorithm for associative cache: RANDOM."
 echo "Choose configuration:"
 read configuration
 
@@ -93,7 +93,7 @@ if [[ $configuration == "1" ]]; then
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -116,7 +116,7 @@ if [[ $configuration == "2" ]]; then
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -139,7 +139,7 @@ if [[ $configuration == "3" ]]; then
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -162,7 +162,7 @@ if [[ $configuration == "4" ]]; then
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -185,7 +185,7 @@ if [[ $configuration == "5" ]]; then
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -208,7 +208,7 @@ if [[ $configuration == "6" ]]; then
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -231,7 +231,7 @@ if [[ $configuration == "7" ]]; then
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -254,7 +254,7 @@ if [[ $configuration == "8" ]]; then
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -277,7 +277,7 @@ if [[ $configuration == "9" ]]; then
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -300,7 +300,7 @@ if [[ $configuration == "10" ]]; then
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -323,7 +323,7 @@ if [[ $configuration == "11" ]]; then
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -346,7 +346,7 @@ if [[ $configuration == "12" ]]; then
 #define DIRECT_CACHE 1
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
@@ -489,7 +489,7 @@ if [[ $configuration == "13" ]]; then
 #define DIRECT_CACHE $direct
 
 /* choose replacement algorithm */
-#define LRU 1
+#define RANDOM 1
 
 #endif //CACHE_CONFIG_H
 EOM
