@@ -8,6 +8,7 @@ traces/
 ~$*
 debug/
 results/
+*.sim 
 
 # Prerequisites
 *.d

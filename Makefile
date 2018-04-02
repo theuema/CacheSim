@@ -13,7 +13,7 @@ binclean:
 	rm -f cache_sim.o cache_controller.o cache_sim
 
 simclean:
-	rm -f *.sim *.pdf
+	rm -f *.sim *.pdf *.png
 
 clean:
-	rm -f rm -f cache_sim.o cache_controller.o cache_sim *.sim *.pdf
+	rm -f rm -f cache_sim.o cache_controller.o cache_sim *.sim *.pdf *.png
