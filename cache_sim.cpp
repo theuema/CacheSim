@@ -67,7 +67,7 @@ string createTimeString() {
 
 string createFileOutputString(const string &prefix, const string &time) {
     ostringstream oss;
-    oss << "./" << time << "_" << prefix << "-CACHESIZE_" << CACHE_SIZE << "-BLOCKSIZE_" << CACHE_BLOCK_SIZE
+    oss << "./" << time << "#" << prefix << "#CACHESIZE_" << CACHE_SIZE << "-BLOCKSIZE_" << CACHE_BLOCK_SIZE
         << "-DIRECT_" << DIRECT_CACHE << "-WAYS_" << CACHE_WAYS << ".sim";
     return oss.str();
 }
@@ -242,9 +242,9 @@ int main(int argc, char **argv) {
         // print some stuff
         string tracename(argv[2]);
         string time = createTimeString();
-        PrintSimpleLog(getCacheInstance(), addr_trace, "simple_"+tracename, time, true);
-        WriteAccessTimeToFile(access_t_L1_mem, "access_t_L1_mem_"+tracename, time);
-        WriteAccessTimeToFile(access_t_cache_hierarchy, "access_t_cache_hierarchy_"+tracename, time);
+        PrintSimpleLog(getCacheInstance(), addr_trace, "simple#"+tracename, time, true);
+        WriteAccessTimeToFile(access_t_L1_mem, "access_t_L1_mem#"+tracename, time);
+        WriteAccessTimeToFile(access_t_cache_hierarchy, "access_t_cache_hierarchy#"+tracename, time);
 
         // free cache
         MemCache__free();

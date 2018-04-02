@@ -12,6 +12,10 @@ from IPython.display import display
 associative = str(sys.argv[1])
 direct = str(sys.argv[2])
 
+#file output string
+tracefile = associative.split("#")[2]
+print(tracefile)
+
 df1 = pd.read_csv(associative, header = None, names=['associative'])
 df2 = pd.read_csv(direct, header = None, names=['direct'])
 df1.info()
@@ -29,10 +33,10 @@ color_dict = {'associative': '#3498DB', 'direct': '#F39C12'}
 date = datetime.datetime.now()
 
 result.rolling(window=rwindow,center=False).mean().plot(stacked=False, color=[color_dict.get(x, '#333333') for x in result.columns])
-plt.savefig(date.strftime('%d-%m-%Y_%H-%M-%S')+'-line_fetch_ns_rwindow='+str(rwindow)+'.png')
+plt.savefig(date.strftime('%d-%m-%Y_%H-%M-%S')+'_'+tracefile+'-line_fetch_ns_rwindow='+str(rwindow)+'.png')
 #plt.show()
 plt.clf()
 
 result.rolling(window=rwindow,center=False).mean().plot(kind='area', stacked=False, color=[color_dict.get(x, '#333333') for x in result.columns])
-plt.savefig(date.strftime('%d-%m-%Y_%H-%M-%S')+'-area_fetch_ns_rwindow='+str(rwindow)+'.png')
+plt.savefig(date.strftime('%d-%m-%Y_%H-%M-%S')+'_'+tracefile+'-area_fetch_ns_rwindow='+str(rwindow)+'.png')
 #plt.show()

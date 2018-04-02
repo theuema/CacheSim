@@ -1,0 +1,27 @@
+#!/bin/bash
+
+E_EXIT=65
+TRACEFOLDER="/Users/theuema/Working/cachesim/traces/"
+
+echo "----------------------------------------------------------------------"
+echo "simulating trace file: aes_cbc"
+./cache_sim ${TRACEFOLDER}aes_cbc_trace.txt aes_cbc
+echo ""
+
+echo "----------------------------------------------------------------------"
+echo "simulating trace file: arc4"
+./cache_sim ${TRACEFOLDER}arc4_trace.txt arc4
+echo ""
+
+echo "----------------------------------------------------------------------"
+echo "simulating trace file: secp256k1_sign"
+echo ""
+./cache_sim ${TRACEFOLDER}secp256k1_sign_trace.txt secp256k1_sign
+
+echo "----------------------------------------------------------------------"
+echo "simulating trace file: tar_unzip"
+./cache_sim ${TRACEFOLDER}tar_unzip_trace.txt tar_unzip
+echo ""
+
+echo "Simulation finished."
+exit $E_EXIT
