@@ -33,7 +33,6 @@ struct MemCache {
 
 /* associative cache mapping */
 struct CacheSet {
-    //bool used;
     uint32_t set_lines_;
     CacheLine *set_line_ptr_;
 };

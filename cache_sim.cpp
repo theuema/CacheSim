@@ -79,8 +79,6 @@ void PrintSimpleLog(MemCache *cache, vector<size_t> &addr_trace, const string &p
                     const string &time, bool file_write_enabled) {
 
     double L1_hit_fetch_time = cache->cache_hits_ * cache->hit_latency_;
-    // Average access time (AAT)
-    // approximated latency on L1 miss witz 3-Level Cache Hierachy
     double L1_miss_data_fetch_time_cache_hierarchy = cache->cache_misses_ * cache->aat_L1_miss;
     double L1_miss_data_fetch_time_mem = cache->cache_misses_ * MEM_LATENCY;
 

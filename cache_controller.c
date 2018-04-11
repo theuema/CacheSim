@@ -36,6 +36,8 @@ void MemCache__init(MemCache *self, uint32_t size, uint32_t ways, CacheLine *lin
 // cache allocation & initialization
 void MemCache__create(void) {
     uint32_t size = CACHE_SIZE * 1024;
+    // Average access time (AAT)
+    // approximated latency on L1 miss with x-Level cache hierachy
     double aat_L1_miss = L2_HIT_LATENCY + L2_MISSRATE * (L3_HIT_LATENCY + L3_MISSRATE * MEM_LATENCY);
     cache = (MemCache *) malloc(sizeof(MemCache));
     cache->block_size_ = CACHE_BLOCK_SIZE;
@@ -53,14 +55,14 @@ void MemCache__create(void) {
     /* allocate cache here;
      *
      * #direct cache
-     *  cache size formula: (kb * 1024) / (sizeof(cache_line)); // 64bytes;
-     *  cache size: 128kb -> 2048  lines
-     *  cache size: 512kb -> 8192  lines
-     *  cache size: 2MB   -> 32786 lines
+     *  cache line formula: (capacity kb * 1024) / (sizeof(cache_line)); // 64bytes;
+     *  cache line: 128kb -> 2048  lines
+     *  cache line: 512kb -> 8192  lines
+     *  cache line: 2MB   -> 32786 lines
      *
      * #associated cache
-     *  cache size formula: ((kb * 1024) / (sizeof(cache_line)) / association); association = ways;
-     *  cache size: 8MB   -> 131.072 lines / 16 ways = 8192 sets
+     *  cache set formula: ((kb * 1024) / (sizeof(cache_line)) / association); association = ways;
+     *  8MB   -> 131.072 lines / 16 ways = 8192 sets
      */
 
     /* direct cache mapping */
