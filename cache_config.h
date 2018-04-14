@@ -11,15 +11,16 @@
 #define DIRECT_CACHE 0
 
 /* choose replacement algorithm */
-#define RANDOM 1
+#define RANDOM 0
+#define LRU 1
 
 /*****************************/
 /* simulated L2/L3/MEM properties */
 /*****************************/
-#define MEM_LATENCY 61.5
+#define MEM_LATENCY 80
 #define L2_MISSRATE 0.01
 #define L3_MISSRATE 0.002
 #define L2_HIT_LATENCY 4
-#define L3_HIT_LATENCY 10.5
+#define L3_HIT_LATENCY 10
 
 #endif //CACHE_CONFIG_H

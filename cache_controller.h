@@ -25,6 +25,8 @@ MemCache *getCacheInstance();
 
 void random_replace(CacheLine *cache_line, size_t addr_tag);
 
+void lru_replace(CacheLine *cache_line, size_t addr_tag);
+
 void cache_flush_all(void);
 
 #endif //CACHE_CONTROLLER_H

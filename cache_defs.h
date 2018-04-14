@@ -29,6 +29,7 @@ struct MemCache {
     uint64_t cache_hits_;
     uint64_t cache_misses_;
     uint64_t replacements_;
+    uint64_t lru_counter_;
 };
 
 /* associative cache mapping */
@@ -41,6 +42,7 @@ struct CacheLine {
     bool valid_;
     size_t tag_;
     uint8_t line_data_[CACHE_BLOCK_SIZE];
+    uint64_t accessed_;
 };
 
 #endif //CACHESIM_OFFLINE_CACHE_DEFS_H

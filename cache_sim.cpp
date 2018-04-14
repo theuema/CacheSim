@@ -109,6 +109,7 @@ void PrintSimpleLog(MemCache *cache, vector<size_t> &addr_trace, const string &p
          << "/ addr_trace size: " << addr_trace.size() << endl
          << "/ L1 hits: " << cache->cache_hits_ << endl
          << "/ L1 misses: " << cache->cache_misses_ << endl
+         << "/ L1 miss-rate: " << (cache->cache_misses_ / ((cache->cache_hits_+cache->cache_misses_) / (double)100)) << "%" << endl
          << "/ L1 replacements: " << cache->replacements_ << endl << endl
 
          << "/------- approximated data fetching time consumption --------/" << endl
