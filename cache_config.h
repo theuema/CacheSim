@@ -5,8 +5,8 @@
 /* L1 cache properties */
 /*****************************/
 #define CACHE_BLOCK_SIZE 64
-#define CACHE_SIZE 32
-#define CACHE_WAYS 8
+#define CACHE_SIZE 4
+#define CACHE_WAYS 16
 #define L1_HIT_LATENCY 1
 #define DIRECT_CACHE 0
 

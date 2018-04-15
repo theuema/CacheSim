@@ -159,6 +159,7 @@ void PrintSimpleLog(MemCache *cache, vector<size_t> &addr_trace, const string &p
             << "/ addr_trace size: " << addr_trace.size() << endl
             << "/ L1 hits: " << cache->cache_hits_ << endl
             << "/ L1 misses: " << cache->cache_misses_ << endl
+            << "/ L1 miss-rate: " << (cache->cache_misses_ / ((cache->cache_hits_+cache->cache_misses_) / (double)100)) << "%" << endl
             << "/ L1 replacements: " << cache->replacements_ << endl << endl
 
             << "/------- approximated data fetching time consumption --------/" << endl
@@ -194,15 +195,16 @@ RecordAccessTimeCacheHierachy(MemCache *cache, vector<double> &access_t, int64_t
 }
 
 /* Function writes mean values to a file for evaluation*/
-void WriteAccessTimeToFile(vector<double> &mean, const string &prefix, const string &time) {
-
+void WriteAccessTimeToFile(vector<double> &data, const string &prefix, const string &time) {
     string fn = createFileOutputString(prefix, time);
-    ofstream ofs(fn, ostream::out);
+    ofstream ofs(fn);
     if (!ofs.is_open()) {
         cout << "Failed to open file. " << fn << endl;
         goto out;
     }
-    copy(mean.rbegin(), mean.rend(), ostream_iterator<double>(ofs, "\n"));
+
+    for (const auto &e : data) ofs << e << "\n";
+    //copy(data.rbegin(), data.rend(), ostream_iterator<double>(ofs, "\n"));
     ofs.close();
     out:
     return;
